@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test URL QR Code</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        .qr-code {
+            margin: 20px 0;
+        }
+        .url {
+            word-break: break-all;
+            background: #f0f0f0;
+            padding: 10px;
+            border-radius: 5px;
+            margin: 10px 0;
+            font-family: monospace;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Insurance Analysis Platform</h1>
+        <h2>Test URL QR Code</h2>
+        
+        <div class="qr-code">
+            <div id="qrcode"></div>
+        </div>
+        
+        <p><strong>Scan this QR code with your phone camera</strong></p>
+        
+        <div class="url">
+            https://806c866e-90a3-4c14-9a50-32fb33409362-00-ft2n0mr9l2l8.spock.replit.dev
+        </div>
+        
+        <p>Or manually copy the URL above</p>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.3/build/qrcode.min.js"></script>
+    <script>
+        const url = "https://806c866e-90a3-4c14-9a50-32fb33409362-00-ft2n0mr9l2l8.spock.replit.dev";
+        
+        QRCode.toCanvas(document.getElementById('qrcode'), url, {
+            width: 256,
+            margin: 2,
+            color: {
+                dark: '#000000',
+                light: '#FFFFFF'
+            }
+        }, function (error) {
+            if (error) console.error(error);
+            console.log('QR code generated successfully!');
+        });
+    </script>
+</body>
+</html>
